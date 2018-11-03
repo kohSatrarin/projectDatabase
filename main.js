@@ -11,6 +11,9 @@ var con = mysql.createConnection({
 con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
+
+  //need function generate id for custumer
+
   //test add new customer
   var addNewCostomer =
     "INSERT INTO `customer` (`id`, `fname`, `lname`, `dob`, `gender`, `phone`, `home_addr`, `work_addr`, `account_id`) VALUES ('', 'ccccc', 'dddddd', '2018-10-11', 'F', '02000000001', 'home', 'work', '000000002');";
