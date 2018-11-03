@@ -5,7 +5,7 @@ var con = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
-  database: "bank"
+  database: "mydb"
 });
 
 con.connect(function(err) {
@@ -15,8 +15,8 @@ con.connect(function(err) {
   //need function generate id for custumer
 
   //test add new customer
-  var addNewCostomer =
-    "INSERT INTO `customer` (`id`, `fname`, `lname`, `dob`, `gender`, `phone`, `home_addr`, `work_addr`, `account_id`) VALUES ('', 'ccccc', 'dddddd', '2018-10-11', 'F', '02000000001', 'home', 'work', '000000002');";
+  var addNewCustomer =
+    "INSERT INTO `customer` (`id`, `fname`, `lname`, `dob`, `gender`, `phone`, `home_addr`, `work_addr`, `account_id`) VALUES ('', 'Mr.A', 'B', '2018-11-01', 'M', '01234567890', 'cmu chiangMai', 'cmu chiangMai', 'acountMrA');";
   con.query(addNewCostomer, function(err, result) {
     if (err) throw err;
     console.log("1 record inserted");
