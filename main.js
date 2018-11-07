@@ -13,6 +13,14 @@ con.connect(function(err) {
   console.log("Connected!");
 
   //need function generate id for custumer
+  con.query("INSERT INTO posts SET ?", { title: "test" }, function(
+    error,
+    results,
+    fields
+  ) {
+    if (error) throw error;
+    console.log(results.insertId);
+  });
 
   //test add new customer
   var addNewCustomer =
@@ -21,6 +29,7 @@ con.connect(function(err) {
     if (err) throw err;
     console.log("1 record inserted");
   });
+
   //text pull all customer
   con.query("SELECT * FROM `customer` WHERE 1", function(err, result, fields) {
     if (err) throw err;
