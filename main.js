@@ -1,4 +1,3 @@
-//test pull info from mysql name = 'bank'
 var mysql = require("mysql");
 
 var con = mysql.createConnection({
@@ -14,7 +13,7 @@ var con = mysql.createConnection({
 
 function addNewCustomer() {
   var addNewCustomer =
-    "INSERT INTO `customer` (`id`, `fname`,`lname`, `dob`, `gender`, `phone`, `home_addr`, `work_addr`, `account_id`) VALUES ('099', 'Mr.A', 'B', '2018-11-01', 'M', '01234567890', 'cmu chiangMai', 'cmu chiangMai', 'acountMrA');";
+    "INSERT INTO `customer` (`id`, `fname`,`lname`, `dob`, `gender`, `phone`, `home_addr`, `work_addr`, `account_id`) VALUES ('11', 'Mr.A', 'B', '2018-11-01', 'M', '01234567890', 'cmu chiangMai', 'cmu chiangMai', '004');";
   con.query(addNewCustomer, function(err, result) {
     if (err) throw err;
     console.log("1 record inserted");
@@ -64,16 +63,23 @@ function showBond() {
   });
 }
 
-// function addNewCustomerTest() {
-//   var addNewCustomer =
-//     "INSERT INTO `customer` (`fname`,`lname`, `dob`, `gender`, `phone`, `home_addr`, `work_addr`, `account_id`) VALUES ('Mr.A', 'B', '2018-11-01', 'M', '01234567890', 'cmu chiangMai', 'cmu chiangMai', 'acountMrA');";
-
-//   con.query("INSERT INTO `customer` SET ?", addNewCustomer, function(
-//     err,
-//     result
-//   ) {
+// function addNewCustomerAutoIncrease() {
+//   var pullLastId = "SELECT MAX(`account_id`) FROM `customer` WHERE 1";
+//   var returnOfFunctionpullLastId;
+//   con.query(pullLastId, function(err, result, fields) {
 //     if (err) throw err;
-//     console.log("Last record insert id:", result.insertId);
+//     else {
+//       result = result.match(/([^'MAX(`account_id`)': ])\w+/g);
+//       console.log(result);
+//       //returnOfFunctionpullLastId = result + 1;
+
+//       // var addNewCustomer =
+//       //   "INSERT INTO `customer` (`id`, `fname`,`lname`, `dob`, `gender`, `phone`, `home_addr`, `work_addr`, `account_id`) VALUES ('11', 'Mr.A', 'B', '2018-11-01', 'M', '01234567890', 'cmu chiangMai', 'cmu chiangMai', '0022');";
+//       // con.query(addNewCustomer, function(err, result) {
+//       //   if (err) throw err;
+//       //   console.log("1 record inserted");
+//       // });
+//     }
 //   });
 // }
 
@@ -85,12 +91,13 @@ con.connect(function(err) {
 
   //test add new customer
   //addNewCustomer();
-  showBond();
+  //showBond();
 
   //text pull all customer
   showAllUser();
-  addBond();
+  //addBond();
   showBond();
+  //addNewCustomerAutoIncrease();
 
   // hello();
   // hello("CSS", "HTML", "AAA", 4);
