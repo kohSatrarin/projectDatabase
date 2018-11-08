@@ -63,25 +63,19 @@ function showBond() {
   });
 }
 
-// function addNewCustomerAutoIncrease() {
-//   var pullLastId = "SELECT MAX(`account_id`) FROM `customer` WHERE 1";
-//   var returnOfFunctionpullLastId;
-//   con.query(pullLastId, function(err, result, fields) {
-//     if (err) throw err;
-//     else {
-//       result = result.match(/([^'MAX(`account_id`)': ])\w+/g);
-//       console.log(result);
-//       //returnOfFunctionpullLastId = result + 1;
+function showOfficerInfo() {
+  con.query("SELECT * FROM `officer`", function(err, result, fields) {
+    if (err) throw err;
+    console.log(result);
+  });
+}
 
-//       // var addNewCustomer =
-//       //   "INSERT INTO `customer` (`id`, `fname`,`lname`, `dob`, `gender`, `phone`, `home_addr`, `work_addr`, `account_id`) VALUES ('11', 'Mr.A', 'B', '2018-11-01', 'M', '01234567890', 'cmu chiangMai', 'cmu chiangMai', '0022');";
-//       // con.query(addNewCustomer, function(err, result) {
-//       //   if (err) throw err;
-//       //   console.log("1 record inserted");
-//       // });
-//     }
-//   });
-// }
+function showCRMrequstFromUser() {
+  con.query("SELECT * FROM `crm`", function(err, result, fields) {
+    if (err) throw err;
+    console.log(result);
+  });
+}
 
 con.connect(function(err) {
   if (err) throw err;
@@ -94,10 +88,11 @@ con.connect(function(err) {
   //showBond();
 
   //text pull all customer
-  showAllUser();
+  //showAllUser();
   //addBond();
-  showBond();
-  //addNewCustomerAutoIncrease();
+  //showBond();
+  //showOfficerInfo();
+  showCRMrequstFromUser();
 
   // hello();
   // hello("CSS", "HTML", "AAA", 4);
